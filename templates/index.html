@@ -4,44 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Countdown App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Travel Countdown App</h1>
-    {% if user %}
-        <h2>Welcome, {{ user.username }}</h2>
-        <form action="{{ url_for('logout') }}" method="get">
-            <button type="submit">Logout</button>
-        </form>
-        <h3>Create New Trip</h3>
-        <form action="{{ url_for('create_trip') }}" method="post">
-            <input type="text" name="trip_name" placeholder="Trip Name" required>
-            <input type="text" name="profile_picture" placeholder="Profile Picture URL" required>
-            <button type="submit">Create Trip</button>
-        </form>
-        <h3>Your Trips</h3>
-        <ul>
-            {% for trip in user.trips %}
-                <li>
-                    <img src="{{ trip.profile_picture }}" alt="Profile Picture" style="width: 50px; height: 50px; border-radius: 50%;">
-                    {{ trip.name }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h2>Login</h2>
-        <form action="{{ url_for('login') }}" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <h2>Sign Up</h2>
-        <form action="{{ url_for('signup') }}" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="text" name="profile_picture" placeholder="Profile Picture URL" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    {% endif %}
+    <div class="container">
+        <h1>Travel Countdown App</h1>
+        <div class="raindrop" id="auth-section">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <h2>Sign Up</h2>
+            <input type="text" id="signup-username" placeholder="Username">
+            <input type="password" id="signup-password" placeholder="Password">
+            <input type="text" id="signup-profile-picture" placeholder="Profile Picture URL">
+            <button onclick="signup()">Sign Up</button>
+        </div>
+        <div class="raindrop" id="main-section" style="display: none;">
+            <h2>Welcome, <span id="current-username"></span></h2>
+            <button onclick="logout()">Logout</button>
+            <h3>Create New Trip</h3>
+            <input type="text" id="trip-name" placeholder="Trip Name">
+            <input type="file" id="trip-profile-picture">
+            <button onclick="createTrip()">Create Trip</button>
+            <h3>Your Trips</h3>
+            <ul id="trips-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -25,6 +25,22 @@ function logout() {
     document.getElementById('password').value = '';
 }
 
+function signup() {
+    const username = document.getElementById('signup-username').value;
+    const password = document.getElementById('signup-password').value;
+    const profilePicture = document.getElementById('signup-profile-picture').value;
+
+    const newUser = {
+        username,
+        password,
+        profilePicture,
+        trips: []
+    };
+    
+    users.push(newUser);
+    alert('Sign up successful! You can now log in.');
+}
+
 function createTrip() {
     const tripName = document.getElementById('trip-name').value;
     const tripProfilePicture = document.getElementById('trip-profile-picture').files[0];
