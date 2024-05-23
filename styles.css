@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://example.com/tropical-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.raindrop {
+    position: relative;
+    width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.raindrop::before,
+.raindrop::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.raindrop::before {
+    width: 60%;
+    height: 60%;
+    top: 10%;
+    left: 20%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+}
+
+.raindrop::after {
+    width: 80%;
+    height: 80%;
+    bottom: 0;
+    left: 10%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    color: black;
+}
